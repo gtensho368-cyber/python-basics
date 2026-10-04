@@ -164,9 +164,6 @@ for chances in range(3):
             print("Access denied.")
         
 
-    
-
-
 
     
     
