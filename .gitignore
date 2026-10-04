@@ -1,0 +1,17 @@
+
+# Python
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+
+# VS Code
+.vscode/
+
+# Build/output files
+dist/
+build/
+
+# Specific file
+test.txt
