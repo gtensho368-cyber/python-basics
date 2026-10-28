@@ -1,4 +1,4 @@
-
+# Read and write files
 # Exercises 1
 with open("hello.txt", "w", encoding="utf-8") as file:
     file.write("Hello\n")
@@ -42,25 +42,33 @@ with open("students.txt", "r", encoding="utf-8") as file:
 print(content)
 
 # Exercise 5
-food = float(input("Enter food price: "))
-transport = float(input("Enter transport price: "))
-school = float(input("Enter school price: "))
+while True:
+    try:
+        food = input("Enter expense or 'done': ")
 
-with open("expenses.txt", "w", encoding="utf-8") as file:
-    file.write(f"{food}\n")
-    file.write(f"{transport}\n")
-    file.write(f"{school}\n")
+        if food.lower() == "done":
+            break
 
-with open("expenses.txt", "r", encoding="utf-8") as file:
-    content = file.read()
+        food = float(food)
 
-nums_strings = content.splitlines()
-nums = []
+        with open("expenses.txt", "a", encoding="utf-8") as file:
+            file.write(f"{food}\n")
 
-for num in nums_strings:
-    nums.append(float(num))
+        with open("expenses.txt", "r", encoding="utf-8") as file:
+            content = file.read()
 
-total = sum(nums)
+        nums_strings = content.splitlines()
+        nums = []
+
+        for num in nums_strings:
+            nums.append(float(num))
+
+        total = sum(nums)
+        print(f"Total: {total}")
+
+    except ValueError:
+        print("Enter a valid number.")
+
 
 
 
